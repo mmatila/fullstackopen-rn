@@ -8,7 +8,8 @@ import AppBarTab from './AppBarTab';
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    flexDirection: 'row',
+    alignItems: 'flex-end',
     paddingTop: Constants.statusBarHeight,
     paddingBottom: 16,
     paddingLeft: 8,
@@ -20,7 +21,8 @@ const styles = StyleSheet.create({
 const AppBar = () => {
   return(
     <View style={styles.container}>
-      <AppBarTab label="Repositories" onPress={() => {}} />
+      <AppBarTab label="Repositories" path="/" />
+      <AppBarTab label="Sign in" path="/signin" />
     </View>
   );
 };

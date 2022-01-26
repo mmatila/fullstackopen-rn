@@ -1,17 +1,19 @@
-import { StyleSheet, Pressable, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
+import { Link } from 'react-router-native';
 
 const styles = StyleSheet.create({
   flexItemText: {
     color: '#FFF',
     fontWeight: 'bold',
+    paddingHorizontal: 8,
   }
 });
 
-const AppBarTab = ({ label, onPress }) => {
+const AppBarTab = ({ label, path }) => {
   return (
-    <Pressable onPress={onPress}>
+    <Link to={path}>
       <Text style={styles.flexItemText}>{label}</Text>
-    </Pressable>
+    </Link>
   );
 };
 
