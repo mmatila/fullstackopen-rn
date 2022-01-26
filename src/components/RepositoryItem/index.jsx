@@ -6,7 +6,7 @@ import Avatar from '../Avatar';
 import Analytics from './Analytics';
 import Tag from './Tag';
 import Text from '../Text';
-import { toRoundedString } from '../../utils';
+import { toRoundedString } from '../../utils/formats';
 
 const styles = StyleSheet.create({
   container: {
