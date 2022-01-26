@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingLeft: 8,
     height: Constants.statusBarHeight + 56,
-    backgroundColor: theme.colors.darkBackground,
+    backgroundColor: theme.colors.background.dark,
   },
 });
 
