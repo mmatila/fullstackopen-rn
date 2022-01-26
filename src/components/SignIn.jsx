@@ -1,8 +1,11 @@
-import Text from './Text';
+import { View } from 'react-native';
+import SignInForm from './SignInForm';
 
 const SignIn = () => {
   return (
-    <Text>The sign in view</Text>
+    <View>
+      <SignInForm />
+    </View>
   );
 };
 
