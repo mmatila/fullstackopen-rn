@@ -2508,6 +2508,11 @@
   dependencies:
     "esutils" "^2.0.2"
 
+"dotenv@^14.3.2":
+  "integrity" "sha512-vwEppIphpFdvaMCaHfCEv9IgwcxMljMw2TnAQBB4VWPvzXQLTb82jwmdOKzlEVUL3gNFT4l4TPKO+Bn+sqcrVQ=="
+  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-14.3.2.tgz"
+  "version" "14.3.2"
+
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
   "resolved" "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
