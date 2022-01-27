@@ -4,6 +4,9 @@ import Constants from 'expo-constants';
 import { theme } from '../theme';
 
 import AppBarTab from './AppBarTab';
+import { GET_CURRENT_USER } from '../graphql/queries';
+import { useQuery } from '@apollo/client';
+import useSignOut from '../hooks/useSignOut';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,11 +22,15 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
+  const { data } = useQuery(GET_CURRENT_USER);
+  const [signOut] = useSignOut();
+
   return(
     <View style={styles.container}>
       <ScrollView horizontal>
         <AppBarTab label="Repositories" path="/" />
-        <AppBarTab label="Sign in" path="/signin" />
+        {data?.me?.username && <AppBarTab label="Sign out" path="/signin" onPress={signOut} /> }
+        {!data?.me?.username && <AppBarTab label="Sign in" path="/signin" /> }
       </ScrollView>
     </View>
   );

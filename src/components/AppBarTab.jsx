@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
   }
 });
 
-const AppBarTab = ({ label, path }) => {
+const AppBarTab = ({ label, path, ...props }) => {
   return (
-    <Link to={path}>
+    <Link to={path} {...props}>
       <Text style={styles.flexItemText}>{label}</Text>
     </Link>
   );
