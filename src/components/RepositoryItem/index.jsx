@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
 
 const RepositoryItem = ({ item }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.detailsContainer}>
+    <View style={styles.container} testID="repositoryItem">
+      <View style={styles.detailsContainer} testID="details">
         <Avatar uri={item.ownerAvatarUrl} />
         <View style={{ display: 'flex', alignItems: 'flex-start' }}>
           <Text variant="heading">{item.fullName}</Text>
@@ -34,7 +34,7 @@ const RepositoryItem = ({ item }) => {
           <Tag label={item.language} />
         </View>
       </View>
-      <View style={styles.analyticsContainer}>
+      <View style={styles.analyticsContainer} testID="analytics">
         <Analytics
           stars={toRoundedString(item.stargazersCount)}
           forks={toRoundedString(item.forksCount)}
