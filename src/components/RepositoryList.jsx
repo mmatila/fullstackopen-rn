@@ -1,5 +1,8 @@
+import { useContext } from 'react';
 import { FlatList, View, StyleSheet } from 'react-native';
+import OrderContext from '../contexts/OrderContext';
 import useRepositories from '../hooks/useRepositories';
+import Picker from './Picker';
 import RepositoryItem from './RepositoryItem/index';
 
 const styles = StyleSheet.create({
@@ -18,6 +21,7 @@ export const RepositoryListContainer = ({ repositories }) => {
   return (
     <FlatList
       keyExtractor={(_, index) => index}
+      ListHeaderComponent={<Picker />}
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={RepositoryItem}
@@ -26,6 +30,8 @@ export const RepositoryListContainer = ({ repositories }) => {
 };
 
 const RepositoryList = () => {
+  const order = useContext(OrderContext);
+  console.log(order);
   const { repositories } = useRepositories();
 
   return <RepositoryListContainer repositories={repositories} />;
