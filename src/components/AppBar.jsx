@@ -32,6 +32,7 @@ const AppBar = () => {
         {data?.me?.username && <AppBarTab label="Create a review" path="/review" /> }
         {data?.me?.username && <AppBarTab label="Sign out" path="/signin" onPress={signOut} /> }
         {!data?.me?.username && <AppBarTab label="Sign in" path="/signin" /> }
+        {!data?.me?.username && <AppBarTab label="Sign up" path="/signup" />}
       </ScrollView>
     </View>
   );
