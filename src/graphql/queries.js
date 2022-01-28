@@ -34,14 +34,27 @@ export const GET_REPOSITORY = gql`
     repository(id: $id) {
       id
       fullName
-      url
-      reviewCount
       ratingAverage
+      reviewCount
       stargazersCount
-      description
-      language
-      ownerAvatarUrl
       forksCount
+      ownerAvatarUrl
+      language
+      description
+      reviews {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+          }
+        }
+      }
     }
   }
 `;
