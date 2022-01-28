@@ -14,7 +14,10 @@ const RenderItem = ({ item }) => {
 
 const Repository = () => {
   const { id } = useParams();
-  const { data, loading } = useQuery(GET_REPOSITORY, { variables: { id } });
+  const { data, loading } = useQuery(GET_REPOSITORY, {
+    fetchPolicy: "cache-and-network",
+    variables: { id }
+  });
   const reviews = data?.repository?.reviews?.edges.map(edge => edge.node);
 
   if (loading) return null;

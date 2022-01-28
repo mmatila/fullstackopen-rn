@@ -38,6 +38,7 @@ export const GET_REPOSITORY = gql`
       reviewCount
       stargazersCount
       forksCount
+      url
       ownerAvatarUrl
       language
       description

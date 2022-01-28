@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
 });
 
 const RepositoryItem = ({ item, active }) => {
+  console.log(item);
   return (
     <Link to={item?.id} component={TouchableOpacity}>
       <View style={styles.container} testID="repositoryItem">
