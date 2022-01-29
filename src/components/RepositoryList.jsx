@@ -52,15 +52,21 @@ export class RepositoryListContainer extends React.Component {
             }
           ItemSeparatorComponent={ItemSeparator}
           renderItem={RepositoryItem}
+          onEndReached={this.props.onEndReach}
+          onEndReachedThreshold={0.5}
       />
     );
   }
 }
 
 const RepositoryList = () => {
-  const { repositories } = useRepositories();
+  const { repositories, fetchMore } = useRepositories();
 
-  return <RepositoryListContainer repositories={repositories} />;
+  const onEndReach = () => {
+    fetchMore();
+  }
+
+  return <RepositoryListContainer repositories={repositories} onEndReach={onEndReach} />;
 };
 
 export default RepositoryList;

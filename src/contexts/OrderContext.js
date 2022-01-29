@@ -3,7 +3,6 @@ import React from 'react';
 const OrderContext = React.createContext();
 
 const orderReducer = (state, action) => {
-  console.log(state);
   switch (action.type) {
     case "SORT_BY_LATEST":
       return { ...state, orderBy: "CREATED_AT", orderDirection: "DESC" };
@@ -27,7 +26,7 @@ const useSort = () => {
 }
 
 export default ({ children }) => {
-  const [order, dispatch] = React.useReducer(orderReducer, { orderBy: "CREATED_AT", orderDirection: "DESC" });
+  const [order, dispatch] = React.useReducer(orderReducer, { orderBy: "CREATED_AT", orderDirection: "DESC", searchKeyword: "", first: 8 });
   return (
     <OrderContext.Provider value={{ order, dispatch }}>
       {children}

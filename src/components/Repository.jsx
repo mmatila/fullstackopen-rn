@@ -14,10 +14,31 @@ const RenderItem = ({ item }) => {
 
 const Repository = () => {
   const { id } = useParams();
-  const { data, loading } = useQuery(GET_REPOSITORY, {
-    fetchPolicy: "cache-and-network",
-    variables: { id }
+  const { data, loading, fetchMore } = useQuery(GET_REPOSITORY, {
+    variables: {
+      id,
+      first: 8,
+    }
   });
+
+  const handleFetchMore = () => {
+    const canFetchMore = !loading && data?.repository.reviews.pageInfo.hasNextPage;
+
+    console.log(canFetchMore);
+
+    if (!canFetchMore) {
+      return;
+    }
+
+    fetchMore({
+      variables: {
+        after: data.repository.reviews.pageInfo.endCursor,
+        id,
+        first: 8,
+      },
+    });
+  };
+
   const reviews = data?.repository?.reviews?.edges.map(edge => edge.node);
 
   if (loading) return null;
@@ -30,6 +51,8 @@ const Repository = () => {
       ListHeaderComponentStyle={{ marginBottom: 10 }}
       keyExtractor={(_, index) => index}
       ItemSeparatorComponent={ItemSeparator}
+      onEndReached={handleFetchMore}
+      onEndReachedThreshold={0.1}
     />
   );
 };
